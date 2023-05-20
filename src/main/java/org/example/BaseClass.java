@@ -5,14 +5,11 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterTest;
 
 
 public class BaseClass {
         WebDriver driver;
-        @BeforeTest
+        @Before
         public void setup() {
             // Set up the wWebDriverManager for chrome driver
             WebDriverManager.chromedriver().setup();
@@ -20,7 +17,6 @@ public class BaseClass {
             driver = new ChromeDriver();
         }
 
-        @Test
         public void launchApplication(){
             // Open the browser and go to lambdatest ecommerce website
             driver.get("https://ecommerce-playground.lambdatest.io/");
@@ -29,7 +25,7 @@ public class BaseClass {
 
         }
 
-        @AfterTest
+        @After
     public void tearDown(){
             driver.quit();
         }
